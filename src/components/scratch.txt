@@ -1,0 +1,98 @@
+https://api.apispreadsheets.com/data/5jwfy2K1aIEvSXBt
+
+import React, { useState } from 'react'
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { Card, CardActionArea } from '@material-ui/core';
+
+ 
+const Dropdown = () => {
+ 
+  const [myOptions, setMyOptions] = useState([])
+ 
+  const getDataFromAPI = () => {
+    console.log("Options Fetched from API")
+ 
+    fetch('https://api.apispreadsheets.com/data/5jwfy2K1aIEvSXBt').then((response) => {
+      return response.json()
+    }).then((res) => {
+      console.log(res.data)
+      for (var i = 0; i < res.data.length; i++) {
+        myOptions.push(res.data[i].GPI14DRUGFULLNAME)
+      }
+      setMyOptions(myOptions)
+    })
+  }
+ 
+  return (
+    <div className="info-box">
+        
+        
+        
+
+    <div style={{ marginLeft: '10%', marginTop: '60px' }}>
+      <h3>Search for Medication</h3>
+      
+          
+      
+      
+      
+      <Autocomplete
+        style={{ width: 500 }}
+        freeSolo
+        autoComplete
+        autoHighlight
+        
+        
+        options={myOptions}
+        renderInput={(params) => (
+          <TextField {...params}
+            id = "full-med-name"
+            onChange={getDataFromAPI}
+            variant="outlined"
+            label="Med Search"
+            
+          />
+         
+          
+          
+          
+        )}
+       
+        
+      />
+      
+      
+    </div>
+
+   
+    
+    
+    </div>
+    
+  );
+}
+ 
+export default Dropdown;
+
+apispreadsheets
+import React, { useState } from 'react';
+import LastFillDate from './components/datepicker';
+import Dropdown from './components/dropdown';
+
+
+
+
+export default function App() {
+  
+  return (
+    <div className="App">
+      
+
+    <Dropdown /> 
+    <LastFillDate /> 
+
+      
+    </div>
+  )
+}

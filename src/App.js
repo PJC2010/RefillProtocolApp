@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import LastFillDate from './components/datepicker';
+import MedSearch from './components/medSearch';
+import {medData} from './medatajson2'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import Fuse from "fuse.js";
+
+
+
+
+
+
+function App(){
+  return(
+    <div>
+      <MedSearch placeholder="Search" />
+      
+    
     </div>
-  );
+  )
 }
-
 export default App;
