@@ -13,7 +13,7 @@ import Fuse from "fuse.js";
 function App(){
   return(
     <div>
-      <MedSearch placeholder="Search" />
+      <MedSearch  />
       
     
     </div>
