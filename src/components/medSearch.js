@@ -1,48 +1,60 @@
-import React, { useState, useEffect }from 'react';
-import drugs from '../db.json';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import axios from 'axios';
+import React, { useEffect, useState }from 'react';
+import drugs from "../data/db2.json"
 
-const MedSearch = () => {
-  const [medata, setData] = useState([]);
-  
-  function GetDataFromSearch () {
-    fetch("../db.json")
-    useEffect(() => {
-      fetch("db.json")
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        for( var i = 0; i <  json.length; i++){
-          medata.push(json[i].fullDrugName)
-        }
-        setData(medata)
-      })
-    })
-  }
-                
 
-  
+function MedSearch() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [ searchResults, setSearchResults] = useState([]);
+  const [options, setOptions] = useState([]);
+  useEffect(() => {
+    const uniqueNames = [...new Set(drugs.map((med) => med.drugFullName))];
+    setOptions(uniqueNames);
+  }, [searchTerm])
 
-  return(
-   
-    
-    <Autocomplete 
-    id="med-search-bar"
-    freeSolo
-    autoComplete
-    
-    options={GetDataFromSearch}
-    renderInput={(params) => <TextField {...params} onChange = {GetDataFromSearch}  label="Search for Medication" />}
-    />
-    
-    
-    
+  const handleChange = (event => {
+    setSearchTerm(event.target.value);
+  });
+
+  useEffect(() => {
+    const filteredData = drugs.filter((med) => med.drugFullName.toLowerCase().includes(searchTerm.toLowerCase()))
+    setSearchResults(filteredData)
+  }, [searchTerm])
+
+  return (
+    <div>
+      <input 
+      type="text"
+      value={searchTerm}
+      onChange={handleChange} 
+      list="options" />
+      <datalist id="options">
+        {options.map((med) => (
+          <option key={med} value={med} />
+        ))}
+      </datalist>
+      <ul>
+        {searchResults.map((med) => (
+          <li key={med.id}>
+            <strong>{med.drugFullName}<br /> </strong>
+            <br />Drug Subclass: {med.subclassName}
+            <br /> Adherence Drug? {med.AdherenceDrug}
+            <br /> Office visit interval in days: {med.ovIntervalDays}
+            <br /> Office visit interval in days: {med.labsRequired}
+            <br /> Vitals Requiring Escalation: {med.vitalsRequiringEscalation}
+            
+          </li>
+        ))}
+      </ul>
+
+    </div>
   )
   
-} 
-export default MedSearch;
+
+  
+} export default MedSearch;
+
+
+
 
 
 
