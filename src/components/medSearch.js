@@ -22,7 +22,9 @@ function MedSearch() {
 
   return (
     <div>
-      <input 
+      <label>Search for medication:</label>
+      <input
+      
       type="text"
       value={searchTerm}
       onChange={handleChange} 
