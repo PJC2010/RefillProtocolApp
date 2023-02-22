@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/RefillProtocolApp/static/css/main.e6c13ad2.css",
+    "main.js": "/RefillProtocolApp/static/js/main.bf42b776.js",
+    "index.html": "/RefillProtocolApp/index.html",
+    "main.e6c13ad2.css.map": "/RefillProtocolApp/static/css/main.e6c13ad2.css.map",
+    "main.bf42b776.js.map": "/RefillProtocolApp/static/js/main.bf42b776.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.bf42b776.js"
+  ]
+}
