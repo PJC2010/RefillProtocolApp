@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
 
 import MedSearch from './components/medSearch';
-import {medData} from './medatajson2'
-
-import RxLastFilled from './components/rxlastfill';
 
 
+import OvCalc from './components/ovCalc';
 
 
 
 
-function App(){
-  return(
+
+
+const App = () => {
+  return (
     <div>
       <MedSearch />
-      <RxLastFilled />
-      
-    
+      <OvCalc />
     </div>
   )
 }

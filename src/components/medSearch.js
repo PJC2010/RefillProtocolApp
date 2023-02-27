@@ -1,5 +1,6 @@
 import React, { useEffect, useState }from 'react';
-import drugs from "../data/db2.json"
+import drugs from "../data/db2.json";
+import OvCalc from './ovCalc';
 
 
 function MedSearch() {
@@ -19,6 +20,8 @@ function MedSearch() {
     const filteredData = drugs.filter((med) => med.drugFullName.toLowerCase().includes(searchTerm.toLowerCase()))
     setSearchResults(filteredData)
   }, [searchTerm])
+
+  
 
   return (
     <div>
@@ -41,12 +44,19 @@ function MedSearch() {
             <br />Drug Subclass: {med.subclassName}
             <br /> Adherence Drug? {med.AdherenceDrug}
             <br /> Office visit interval in days: {med.ovIntervalDays}
-            <br /> Office visit interval in days: {med.labsRequired}
+            <br /> Lab interval in days: {med.labIntervalDays}
             <br /> Vitals Requiring Escalation: {med.vitalsRequiringEscalation}
+            <OvCalc ovIntervalDays={med.ovIntervalDays} />
+            
             
           </li>
+          
         ))}
+        
       </ul>
+      
+      
+      
 
     </div>
   )

@@ -3,11 +3,16 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function RxLastFilled() {
+ function RxLastFilled({searchResults}) {
  const [startDate, setStartDate] = useState(new Date());
  const [endDate, setEndDate] = useState(new Date());
  const [timeDiff, setTimeDiff] = useState(0);
+
  
+
+ 
+ 
+
  
  
  
@@ -38,20 +43,12 @@ export default function RxLastFilled() {
        onSelect = {setStartDate}
        onChange={date => setStartDate(date)}
      />
-     <label>Select date of next office visit</label>
-     <DatePicker
-       selected={endDate}
-       selectsEnd
-       
-       endDate={endDate}
-       minDate={startDate}
-       onSelect = {setEndDate}
-       onChange={date => setEndDate(date)}
-     />
+     
+     
      <p>{timeDiff} Days until patient is due for office visit </p>
 
      
      </form>
    </div>
  );
-}
+} export default RxLastFilled;
