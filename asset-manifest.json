@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/RefillProtocolApp/static/css/main.de66ca14.css",
-    "main.js": "/RefillProtocolApp/static/js/main.daf7540c.js",
+    "main.js": "/RefillProtocolApp/static/js/main.71f959a9.js",
     "index.html": "/RefillProtocolApp/index.html",
     "main.de66ca14.css.map": "/RefillProtocolApp/static/css/main.de66ca14.css.map",
-    "main.daf7540c.js.map": "/RefillProtocolApp/static/js/main.daf7540c.js.map"
+    "main.71f959a9.js.map": "/RefillProtocolApp/static/js/main.71f959a9.js.map"
   },
   "entrypoints": [
     "static/css/main.de66ca14.css",
-    "static/js/main.daf7540c.js"
+    "static/js/main.71f959a9.js"
   ]
 }
