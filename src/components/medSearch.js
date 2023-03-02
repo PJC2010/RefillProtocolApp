@@ -18,7 +18,7 @@ function MedSearch() {
 
   useEffect(() => {
     const filteredData = drugs.filter((med) => med.drugFullName.toLowerCase().includes(searchTerm.toLowerCase()))
-    setSearchResults(filteredData)
+    setSearchResults(filteredData.slice(0,1))
   }, [searchTerm])
 
   
@@ -46,7 +46,10 @@ function MedSearch() {
             <br /> Office visit interval in days: {med.ovIntervalDays}
             <br /> Lab interval in days: {med.labIntervalDays}
             <br /> Vitals Requiring Escalation: {med.vitalsRequiringEscalation}
+            
             <OvCalc ovIntervalDays={med.ovIntervalDays} />
+            
+           
             
             
           </li>
@@ -54,6 +57,7 @@ function MedSearch() {
         ))}
         
       </ul>
+      
       
       
       
